@@ -6,7 +6,7 @@
         {
 
             int[] nums = { 1, 4, 9, 16, 25 };
-            Loop l = new Loop(nums);
+            Loop<int> l = new Loop<int>(nums);
 
             Console.WriteLine(l.Current); //vypíše 1
 
