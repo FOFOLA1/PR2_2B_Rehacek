@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_OOP2-08_IComparable-Body
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_OOP2-09_IComparable-BMI", "02_OOP2-09_IComparable-BMI\02_OOP2-09_IComparable-BMI.csproj", "{5B657A9D-6792-44F1-888E-A3CCD00DE673}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_zdroje-svetla_spotrebice", "Test\Test_zdroje-svetla_spotrebice.csproj", "{266A9A34-184B-4C54-9903-5F008AE4EDB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{5B657A9D-6792-44F1-888E-A3CCD00DE673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B657A9D-6792-44F1-888E-A3CCD00DE673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B657A9D-6792-44F1-888E-A3CCD00DE673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266A9A34-184B-4C54-9903-5F008AE4EDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266A9A34-184B-4C54-9903-5F008AE4EDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266A9A34-184B-4C54-9903-5F008AE4EDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266A9A34-184B-4C54-9903-5F008AE4EDB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,6 +166,7 @@ Global
 		{F7343609-0819-4759-8DA3-EBED0495E6A5} = {D38258CC-84A2-42E6-A9CA-C38A7B582565}
 		{E92A9C30-84FF-4E42-A911-31E0461AF127} = {D38258CC-84A2-42E6-A9CA-C38A7B582565}
 		{5B657A9D-6792-44F1-888E-A3CCD00DE673} = {D38258CC-84A2-42E6-A9CA-C38A7B582565}
+		{266A9A34-184B-4C54-9903-5F008AE4EDB5} = {D38258CC-84A2-42E6-A9CA-C38A7B582565}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9CE84683-64D8-40B6-8E8C-E02D55EFB044}
