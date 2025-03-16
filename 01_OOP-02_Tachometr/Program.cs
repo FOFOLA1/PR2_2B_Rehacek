@@ -12,11 +12,12 @@
                 Console.WriteLine(tachometr.Stav);
                 tachometr.Ujed(-20);
                 Console.WriteLine(tachometr.Stav);
-            } catch (ArgumentOutOfRangeException)
+            }
+            catch (ArgumentOutOfRangeException)
             {
                 Console.WriteLine("chyba");
             }
-            
+
         }
     }
 }

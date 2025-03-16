@@ -1,11 +1,4 @@
-﻿using _01_OOP_04_Lanovka2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _01_OOP_04_Lanovka2
+﻿namespace _01_OOP_04_Lanovka2
 {
     class Lanovka
     {
@@ -18,8 +11,8 @@ namespace _01_OOP_04_Lanovka2
         {
             get
             {//zde musíte implementovat jinak}
-                if (_dolniSedacka.Pasazer == null) return true; 
-                else return false; 
+                if (_dolniSedacka.Pasazer == null) return true;
+                else return false;
             }
         }
         public bool JeVolnoNahore
@@ -59,19 +52,19 @@ namespace _01_OOP_04_Lanovka2
         }
         public bool Nastup(Clovek clovek) //tohle je teď velmi snadné, protože mám uložený přímý odkaz na sedačku
         {
-             if (!JeVolnoDole)
-             return false;
-             if (Zatizeni + clovek.Hmotnost > Nosnost)
-             return false;
-             _dolniSedacka.Pasazer = clovek;
-             return true;
+            if (!JeVolnoDole)
+                return false;
+            if (Zatizeni + clovek.Hmotnost > Nosnost)
+                return false;
+            _dolniSedacka.Pasazer = clovek;
+            return true;
         }
         public Clovek Vystup() //tohle je teď velmi snadné, protože mám uložený přímý odkaz na sedačku
         {
             Clovek pasazer = _horniSedacka.Pasazer;
             _horniSedacka.Pasazer = null;
             return pasazer;
-        
+
         }
         public void Jed()
         {

@@ -21,9 +21,9 @@
                     pocet++;
                 }
             }
-            if (soucet/pocet == double.NaN) return 0;
-            else return soucet/pocet;
-            
+            if (soucet / pocet == double.NaN) return 0;
+            else return soucet / pocet;
+
         }
     }
 }

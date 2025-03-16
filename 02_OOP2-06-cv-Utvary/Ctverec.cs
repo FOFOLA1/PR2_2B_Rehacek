@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02_OOP2_06_cv_Utvary
+﻿namespace _02_OOP2_06_cv_Utvary
 {
     internal class Ctverec : IUtvar
     {
-        public double Strana {  get; private set; }
+        public double Strana { get; private set; }
         public string Nazev => "Čtverec";
 
         public Ctverec(double strana)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02_OOP2_06_cv_Utvary
+﻿namespace _02_OOP2_06_cv_Utvary
 {
     internal class PlechovkaBarvy : IUtvar
     {
@@ -25,7 +19,8 @@ namespace _02_OOP2_06_cv_Utvary
             {
                 Objem -= spotreba;
                 return true;
-            } else return false;
+            }
+            else return false;
         }
 
         public override string ToString() => $"Plechovka barvy, zbývá ještě {Objem} litrů barvy.";

@@ -8,15 +8,16 @@
             //int[] array = { -5, 3, 2, -3, 7, 0, 12, -1 };
             //int[] array = {1, 3, 2, 1, 7, 0, 12, -1};
             //int[] array = {-1};
-            int[] array = {};
+            int[] array = { };
 
-            int sumS = 0,  sumL = 0;
+            int sumS = 0, sumL = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                if (i%2 == 0)
+                if (i % 2 == 0)
                 {
                     sumS += array[i];
-                } else
+                }
+                else
                 {
                     sumL += array[i];
                 }

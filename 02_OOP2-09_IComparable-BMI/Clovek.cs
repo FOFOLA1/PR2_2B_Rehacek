@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02_OOP2_09_IComparable_BMI
+﻿namespace _02_OOP2_09_IComparable_BMI
 {
     class Clovek : IComparable
     {
@@ -25,7 +19,7 @@ namespace _02_OOP2_09_IComparable_BMI
 
         public double BMI()
         {
-            return this.Hmotnost / ((this.Vyska/100) * (this.Vyska / 100));
+            return this.Hmotnost / ((this.Vyska / 100) * (this.Vyska / 100));
         }
 
         public int CompareTo(object? obj)
@@ -38,7 +32,7 @@ namespace _02_OOP2_09_IComparable_BMI
 
         public override string ToString()
         {
-            return $"{Jmeno}, {Hmotnost}, {Vyska}: {BMI()}"; 
+            return $"{Jmeno}, {Hmotnost}, {Vyska}: {BMI()}";
         }
     }
 }

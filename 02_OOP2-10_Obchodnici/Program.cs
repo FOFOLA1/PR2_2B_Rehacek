@@ -1,7 +1,4 @@
-﻿using System.Xml.Linq;
-using System;
-
-namespace _02_OOP2_10_Obchodnici
+﻿namespace _02_OOP2_10_Obchodnici
 {
     internal class Program
     {

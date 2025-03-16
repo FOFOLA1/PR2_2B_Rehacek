@@ -1,9 +1,6 @@
 ﻿namespace Test
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections.Specialized;
-    using System.Linq;
 
     class Program
     {
@@ -42,10 +39,11 @@
 
         }
 
-        public static double EnlightedPath(ILightSource[] poleZdroju) {
-           //Vrátí, jak dlouhou cestu by polem zdrojů šlo osvítit
-           //takže pokud mám dva zdroje - 7m a 1 m, pak osvítím až 16 m cesty
-           //(zdroj svítí na obě strany)
+        public static double EnlightedPath(ILightSource[] poleZdroju)
+        {
+            //Vrátí, jak dlouhou cestu by polem zdrojů šlo osvítit
+            //takže pokud mám dva zdroje - 7m a 1 m, pak osvítím až 16 m cesty
+            //(zdroj svítí na obě strany)
             double count = 0;
             foreach (ILightSource zdroj in poleZdroju)
             {
@@ -118,7 +116,7 @@
         public CircularSaw(int voltage) : base(voltage, "Circular saw")
         {
         }
-        
+
         public override string TurnOn()
         {
             return $"Connected to {this.Voltage} V and cutting";
@@ -141,7 +139,7 @@
             }
             private set { distance = value; }
         }
-        public bool isTurnedOn =false;
+        public bool isTurnedOn = false;
 
         public Lamp(int voltage, double enlightedDistance) : base(voltage, "Lamp")
         {
@@ -167,7 +165,7 @@
 
         public Gadgets(ElectricDevice[] devices)
         {
-           _devices = devices;
+            _devices = devices;
         }
 
         public int MaxVoltage

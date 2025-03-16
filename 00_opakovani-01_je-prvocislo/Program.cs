@@ -1,8 +1,4 @@
-﻿
-
-using System.Runtime.InteropServices;
-
-namespace _00_opakovani_01_je_prvocislo
+﻿namespace _00_opakovani_01_je_prvocislo
 {
     internal class Program
     {

@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Strom strom = new Str
+            //Strom strom = new Str
         }
 
 

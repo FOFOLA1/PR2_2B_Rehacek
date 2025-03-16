@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02_OOP2_06_cv_Utvary
+﻿namespace _02_OOP2_06_cv_Utvary
 {
     internal class Kruh : IUtvar
     {
@@ -16,8 +10,8 @@ namespace _02_OOP2_06_cv_Utvary
             Polomer = strana;
         }
 
-        public double GetObvod() => 2*Polomer*double.Pi;
-        public double GetObsah() => Polomer*Polomer*double.Pi;
+        public double GetObvod() => 2 * Polomer * double.Pi;
+        public double GetObsah() => Polomer * Polomer * double.Pi;
 
         public override string? ToString() => $"Kruh o poloměru {Polomer} cm";
     }

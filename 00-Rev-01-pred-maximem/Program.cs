@@ -29,7 +29,7 @@
             {
                 return cisla;
             }
-            
+
         }
 
         static string GetCisloPredNejvetsim(int[] cisla)
@@ -47,7 +47,7 @@
                 }
             }
             if (i_nejvetsi == 0) return cisla[cisla.Length - 1].ToString();
-            else return cisla[i_nejvetsi-1].ToString();
+            else return cisla[i_nejvetsi - 1].ToString();
         }
     }
 }

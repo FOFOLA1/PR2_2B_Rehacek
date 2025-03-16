@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _01_OOP_04_Lanovka
+﻿namespace _01_OOP_04_Lanovka
 {
     internal class Lanovka
     {
@@ -26,7 +20,7 @@ namespace _01_OOP_04_Lanovka
 
         public bool Nastup(Clovek clovek)
         {
-            if (lanovka[0] != null || nosnost-Zatizeni-clovek.Hmotnost < 0) return false;
+            if (lanovka[0] != null || nosnost - Zatizeni - clovek.Hmotnost < 0) return false;
             lanovka[0] = clovek;
             Zatizeni += clovek.Hmotnost;
             return true;

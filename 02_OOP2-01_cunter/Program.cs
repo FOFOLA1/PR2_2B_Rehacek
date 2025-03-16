@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace _02_OOP2_01_cunter
+﻿namespace _02_OOP2_01_cunter
 {
     internal class Program
     {

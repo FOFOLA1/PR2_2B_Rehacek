@@ -14,15 +14,17 @@
             private int delka;
 
             public string Barva { get => barva; set => barva = value; } // Zkratka prop, propfull
-            public int Delka { 
-                get => delka; 
-                set {
+            public int Delka
+            {
+                get => delka;
+                set
+                {
                     if (value < 0)
                     {
                         throw new ArgumentOutOfRangeException();
                     }
                     delka = value;
-                 } 
+                }
             }
 
             public Role(string barva, int delka)

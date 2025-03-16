@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _01_OOP_06_Paginator
+﻿namespace _01_OOP_06_Paginator
 {
     internal class Paginator
     {
@@ -38,15 +32,15 @@ namespace _01_OOP_06_Paginator
 
             //for (int i = 0; i < _items.Length; i++)
             //{
-                //_pages[(i - i % PageCount) / PageCount] = new string[];
-                //_pages[(i - i % PageCount) / PageCount][i % _pageSize] = _items[i];
+            //_pages[(i - i % PageCount) / PageCount] = new string[];
+            //_pages[(i - i % PageCount) / PageCount][i % _pageSize] = _items[i];
             //}
         }
 
         public int GetPageItemCount(int page)
         {
             if (page > PageCount) return 0;
-            else if (page == PageCount-1) return _items.Length % PageCount;
+            else if (page == PageCount - 1) return _items.Length % PageCount;
 
             return _pageSize;
         }
@@ -56,7 +50,7 @@ namespace _01_OOP_06_Paginator
             if (page > PageCount) return new string[0];
             return _items
                 .ToList()
-                .GetRange(_pageSize*page, GetPageItemCount(page))
+                .GetRange(_pageSize * page, GetPageItemCount(page))
                 .ToArray();
             //return _pages[page];
         }

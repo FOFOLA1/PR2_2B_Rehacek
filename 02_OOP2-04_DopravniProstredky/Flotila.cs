@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02_OOP2_04_DopravniProstredky
+﻿namespace _02_OOP2_04_DopravniProstredky
 {
     internal sealed class Flotila
     {
@@ -12,7 +6,7 @@ namespace _02_OOP2_04_DopravniProstredky
 
         public Flotila()
         {
-            this.dopravniProstredeks = new List<DopravniProstredek> ();
+            this.dopravniProstredeks = new List<DopravniProstredek>();
         }
 
         public int Velikost { get => dopravniProstredeks.Count; }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02_OOP2_03_Zamestnanci
+﻿namespace _02_OOP2_03_Zamestnanci
 {
     internal class Firma
     {
@@ -14,7 +8,7 @@ namespace _02_OOP2_03_Zamestnanci
 
         public void Zamestnej(Zamestnanec z)
         {
-            if (!_personal.Contains(z)) 
+            if (!_personal.Contains(z))
                 _personal.Add(z);
         }
 
@@ -26,7 +20,7 @@ namespace _02_OOP2_03_Zamestnanci
         public void Vyplata()
         {
             int celkem = 0;
-            foreach(Zamestnanec z in _personal)
+            foreach (Zamestnanec z in _personal)
             {
                 int mzda = z.Mzda();
                 celkem += mzda;
