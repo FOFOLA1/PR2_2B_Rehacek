@@ -1,0 +1,207 @@
+﻿<Window x:Class="Sudoku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="540"
+        Background="LightBlue"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="ConfigSceneButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="65"/>
+            <Setter Property="Margin" Value="100px 5px 100px 5px"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="FontSize" Value="20pt"/>
+        </Style>
+        <Style x:Key="btnStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="25pt"/>
+            <Setter Property="Margin" Value="3px"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="Background" Value="#FF85BDF3"/>
+        </Style>
+        <Style x:Key="btnStyleSelected" TargetType="Button" BasedOn="{StaticResource btnStyle}">
+            <Setter Property="Background" Value="#FF52A4F3"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="30,20,30,30">
+        <Grid x:Name="ConfigScene" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="SUDOKU" FontSize="40pt" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                   Grid.ColumnSpan="5"/>
+
+            <Button Content="Neformální" Grid.Row="1" 
+                    Style="{StaticResource ConfigSceneButtonStyle}"
+                    Click="ConfigSceneButtonClick">
+            </Button>
+
+            <Button Content="Lehký" Grid.Row="2"
+                    Style="{StaticResource ConfigSceneButtonStyle}"
+                    Click="ConfigSceneButtonClick">
+            </Button>
+
+            <Button Content="Těžký" Grid.Row="3"
+                    Style="{StaticResource ConfigSceneButtonStyle}"
+                    Click="ConfigSceneButtonClick"/>
+
+            <Button Content="Statistiky" Grid.Row="4"
+                    Style="{StaticResource ConfigSceneButtonStyle}"
+                    Click="Stats_Button_Click"/>
+
+            <Label Content="Loading..." 
+                   Visibility="Hidden" x:Name="ConfigSceneLoadingLabel"
+                   Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+
+        </Grid>
+        
+        
+        
+        <Grid x:Name="GameScene" Visibility="Hidden">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="{Binding Time, RelativeSource={RelativeSource AncestorType=local:MainWindow}}"
+                   x:Name="timeLabel"
+                   FontSize="15pt"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"
+                   VerticalContentAlignment="Stretch"
+                   HorizontalContentAlignment="Stretch"
+                   Padding="0"
+                   Margin="5,-2"/>
+
+            <Border BorderThickness="2px" Grid.Row="1" BorderBrush="Black">
+                <Grid x:Name="Board">
+
+                </Grid>
+            </Border>
+
+
+            <Grid Grid.Row="3" x:Name="buttons">
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Smazat" 
+                        Style="{StaticResource btnStyle}"
+                        x:Name="delBtn"
+                        Click="NumBtnClick"/>
+
+                <Button Grid.Column="1" Content="Poznámky" 
+                        Style="{StaticResource btnStyle}"
+                        x:Name="comments_button"
+                        Click="comments_Click"/>
+
+                <Button Grid.Column="2" Content="Chyby" 
+                        Style="{StaticResource btnStyle}"
+                        x:Name="errors_button"
+                        Click="errors_button_Click"/>
+                <!--
+                <CheckBox Grid.Column="2" Content="Zobrazit chyby" FontSize="20pt" 
+                            VerticalAlignment="Center" VerticalContentAlignment="Center" 
+                            Margin="0px 10px 0px 0px" 
+                            HorizontalAlignment="Right"
+                            x:Name="show_errors"
+                            Click="show_errors_Click"/>
+                -->
+            </Grid>
+        </Grid>
+
+
+        <Grid x:Name="EndScene" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Label
+                Content="Gratuluji!"
+                Grid.Row="0"
+                FontSize="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="20"
+                />
+            <TextBlock
+                x:Name="FinishMsg"
+                Grid.Row="1"
+                FontSize="30pt" 
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                TextAlignment="Center"
+                TextWrapping="Wrap"/>
+
+            <Button
+                Height="60"
+                Width="160"
+                Content="Zpět"
+                Style="{StaticResource btnStyle}"
+                Grid.Row="2"
+                VerticalAlignment="Center"
+                Click="EndScene_BackButton_Click"/>
+
+        </Grid>
+        <Grid x:Name="Stats" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Statistiky"
+                   Grid.Row="0"
+                   FontSize="35pt"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   VerticalContentAlignment="Stretch"
+                   HorizontalContentAlignment="Stretch"/>
+            <Grid Grid.Row="1" x:Name="StatsData">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+            </Grid>
+            <Button Content="Zpět"
+                    Style="{StaticResource btnStyle}"
+                    Width="130"
+                    Height="60"
+                    Grid.Row="2"
+                    Click="StatsBackButtonClick"/>
+        </Grid>
+    </Grid>
+</Window>
