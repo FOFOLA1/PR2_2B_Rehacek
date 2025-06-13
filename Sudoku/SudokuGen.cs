@@ -15,20 +15,6 @@ public class SudokuGen
     {
         int emptyCells = 0;
 
-        //if (informal)
-        //{
-        //    size = 6;
-        //    boxRows = 2;
-        //    boxCols = 3;
-        //    if (emptyCells < 0) emptyCells = 12;
-        //}
-        //else
-        //{
-        //    size = 9;
-        //    boxRows = 3;
-        //    boxCols = 3;
-        //    if (emptyCells < 0) emptyCells = 40;
-        //}
 
         switch (diff)
         {
@@ -55,22 +41,15 @@ public class SudokuGen
                 break;
         }
 
-        // Initialize the board
         board = new int[size, size];
-
-        // Generate a solved Sudoku board
-        FillBoard();
-
-        // Create the puzzle by removing cells
-        CreatePuzzle(emptyCells);
-
-        // Convert the 2D array to a List<List<int>> for return
+        GenerateSolution();
+        RemoveCellsForPuzzle(emptyCells);
         return ConvertBoardToList();
     }
 
-    private static bool FillBoard()
+    private static bool GenerateSolution()
     {
-        // Find an empty cell
+        // find empty cell
         int row = -1;
         int col = -1;
         bool isEmpty = true;
@@ -93,13 +72,13 @@ public class SudokuGen
             }
         }
 
-        // If no empty cell is found, the board is filled
+        // if no empty cell found, completed
         if (isEmpty)
         {
             return true;
         }
 
-        // Create a shuffled list of numbers to try
+        // shuffeled list of possible numbers
         List<int> numbers = new List<int>();
         for (int num = 1; num <= size; num++)
         {
@@ -107,24 +86,24 @@ public class SudokuGen
         }
         ShuffleList(numbers);
 
-        // Try each number in the shuffled list
+        // try to put number from list to board
         foreach (int num in numbers)
         {
             if (IsSafe(row, col, num))
             {
                 board[row, col] = num;
 
-                if (FillBoard())
+                if (GenerateSolution())
                 {
                     return true;
                 }
 
-                // If placing the number doesn't lead to a solution, backtrack
+                // backtrack if number does not lead to solution
                 board[row, col] = 0;
             }
         }
 
-        // No solution found with current configuration
+        // no solution found
         return false;
     }
 
@@ -176,9 +155,9 @@ public class SudokuGen
         return true;
     }
 
-    private static void CreatePuzzle(int emptyCells)
+    private static void RemoveCellsForPuzzle(int emptyCells)
     {
-        // Create a list of all cell positions
+        // list of all board positions
         List<(int, int)> positions = new List<(int, int)>();
         for (int i = 0; i < size; i++)
         {
@@ -190,7 +169,7 @@ public class SudokuGen
 
         ShuffleList(positions);
 
-        // Remove cells (set to 0) based on the difficulty
+        // remove number of cells
         for (int i = 0; i < Math.Min(emptyCells, positions.Count); i++)
         {
             var (row, col) = positions[i];

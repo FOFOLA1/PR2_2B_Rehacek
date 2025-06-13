@@ -60,6 +60,7 @@ public partial class MainWindow : Window
 
     private void ConfigSceneButtonClick(object sender, RoutedEventArgs e)
     {
+        // entering game if one of that buttons is pressed
         ConfigSceneLoadingLabel.Visibility = Visibility.Visible;
         _difficulty = ((Button)sender).Content switch
         {
@@ -74,6 +75,7 @@ public partial class MainWindow : Window
 
     private void PreGenBoard()
     {
+        // logic for generating board (before displaying)
         Board.Children.Clear();
         Board.ColumnDefinitions.Clear();
         Board.RowDefinitions.Clear();
@@ -337,6 +339,7 @@ public partial class MainWindow : Window
 
     private void NextStage(GameStage next)
     {
+        // timer and scene control between stages
         switch (_stage)
         {
             case GameStage.Config:
@@ -386,6 +389,7 @@ public partial class MainWindow : Window
 
     private void Timer_Tick(object sender, EventArgs e)
     {
+        // logic that happens every game tick to count and display time
         _elapsedTime = _elapsedTime.Add(TimeSpan.FromSeconds(1));
 
         Time = formatTime(_elapsedTime);
@@ -416,11 +420,13 @@ public partial class MainWindow : Window
 
     private void NumBtnClick(object sender, RoutedEventArgs e)
     {
+        // selecting different number for fill (in game)
         SwitchBtns((Button)sender);
     }
 
     private void NumMouseDown(object sender, MouseButtonEventArgs e)
     {
+        // changing board cells on click based on selected number button
         Num num = (Num)sender;
         if (_isCommentsEditMode)
         {
@@ -450,6 +456,7 @@ public partial class MainWindow : Window
 
     private void errors_button_Click(object sender = null, RoutedEventArgs e = null)
     {
+        // switching view with errors or without them
         _showErrors = !_showErrors;
         errors_button.Style = _showErrors ? btnStyleSelected : btnStyle;
         CheckErrors();
@@ -600,6 +607,7 @@ public partial class MainWindow : Window
 
     private void Button_KeyDown(object sender, KeyEventArgs e)
     {
+        // keyboard listener and switching selected numbers based on that
         int number_index = -2;
 
         if (e.Key >= Key.D0 && e.Key <= Key.D9)
@@ -631,6 +639,7 @@ public partial class MainWindow : Window
 
     private void SwitchBtns(Button newBtn)
     {
+        // switching number buttons logic with style change
         _selectedNum.Style = btnStyle;
         newBtn.Style = btnStyleSelected;
 
@@ -640,6 +649,7 @@ public partial class MainWindow : Window
 
     private void comments_Click(object sender = null, RoutedEventArgs e = null)
     {
+        // switch to comments edit
         _isCommentsEditMode = !_isCommentsEditMode;
         comments_button.Style = _isCommentsEditMode ? btnStyleSelected : btnStyle;
     }
